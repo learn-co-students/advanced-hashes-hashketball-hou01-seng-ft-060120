@@ -214,10 +214,6 @@ value[:players].each do |player_name|
   end
   end
 end
-  
-  
-  #player_name.delete_if(:player_name = "Jeff Adrien")
-
 
 def big_shoe_rebounds
   big_shoe = 0

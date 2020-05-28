@@ -161,47 +161,22 @@ def team_names
   end
 end
 
-def player_numbers(input)
-  output = []
-  game_hash.each do |team, team_info|
-    if team_info[:team_name] == input 
-      team_info.each do |key, value|
+def player_numbers(team_name)
+  final_array = []
+  game_hash.each do |home_team, home_team_info|
+    if home_team_info[:team_name] == team_name
+      home_team_info.each do |key, value|
         if key == :players
-          value.each do |player|
-          output.push(player[:number])
+          value.each do |player_info|
+            final_array << player_info[:number]
+            end
           end
         end
       end
     end
+    final_array
   end
-  output
-end
 
-def player_stats(name)
-game_hash.each do |team, team_info|
-team_data.each do |player_name|
-  binding.pry
-  if player_name == name
-    player.delete(:player_name)
-end
-end
-end
-end
-
-def player_stats(input)
-  game_hash.each do |team, team_info|
-    team_info.each do |key, value|
-      if key == :players
-        value.each do |player|
-          if input == player[:player_name]
-            player.delete(:player_name) # having player name inside the hash was a bad idea!
-            return player
-          end
-        end
-      end
-    end
-  end
-end
 
 
 def player_stats(name)
